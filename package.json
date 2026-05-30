@@ -1,0 +1,9 @@
+{
+  "name": "mikrotik-vn-ip",
+  "version": "1.0.0",
+  "description": "Auto update VN IP addresses for MikroTik",
+  "main": "update.js",
+  "scripts": {
+    "start": "node update.js"
+  }
+}
