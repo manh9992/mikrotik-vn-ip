@@ -9,7 +9,7 @@ Giải pháp tự động hoá 100% (serverless) giúp Router MikroTik luôn đ�
 ### 🌟 Tính năng nổi bật
 - **Dữ liệu chuẩn gốc:** Lấy trực tiếp từ API của **RIPE NCC** (Tổ chức Quản lý IP Châu Âu), đảm bảo 100% là các IP được cấp phép hành chính cho các nhà mạng Việt Nam.
 - **Tự động 100%:** Sử dụng máy chủ mây **GitHub Actions** để tự động kéo dữ liệu và cập nhật file `.rsc` vào lúc 2:00 sáng Chủ Nhật hàng tuần.
-- **Tối ưu cực tốt cho Router:** Thay vì dùng các list định vị địa lý (Geolocation) bị băm nhỏ lẻ tẻ thành gần 3.000 dải, list từ RIPE được gom rất gọn gàng chỉ còn khoảng 1.650 dải. Điều này giúp MikroTik giảm tới 50% gánh nặng CPU/RAM khi phải quét Mangle, Cân bằng tải (PCC) hoặc Firewall.
+- **Tối ưu cực tốt cho Router:** Dữ liệu IP được lấy từ cấp phát gốc của RIPE nên được gom gọn tối đa (chỉ còn khoảng 1.650 dải). Việc giảm thiểu số lượng dòng lệnh giúp MikroTik tiết kiệm đáng kể tài nguyên CPU và RAM khi xử lý các rule Mangle, Cân bằng tải (PCC) hay Firewall so với việc dùng các danh sách IP trích xuất từ Geolocation thông thường.
 
 ### 🚀 Cách cài đặt lên MikroTik
 Anh/em không cần phải tự tải file hay mở máy tính. Chỉ cần copy đoạn lệnh dưới đây thả vào Terminal của Winbox là xong. Hệ thống sẽ tự động lấy IP về mỗi tuần.
@@ -33,7 +33,7 @@ An automated, serverless solution to keep your MikroTik RouterOS updated with th
 ### 🌟 Features
 - **Authoritative Data:** Fetches exact and official IPv4 CIDR allocations directly from the **RIPE NCC** (stat.ripe.net) API.
 - **Serverless & Automated:** Uses **GitHub Actions** to automatically run the update script every Sunday at 02:00 AM (GMT+7).
-- **Router Optimized:** Unlike Geolocation lists (which output ~3,000 subnets), this authoritative list aggregates into just ~1,650 subnets. This drastically reduces CPU and RAM usage on MikroTik when scanning Firewall/Mangle/PCC rules, without sacrificing accuracy.
+- **Router Optimized:** The IP list is aggregated directly from official RIPE allocations, resulting in highly condensed subnets (around 1,650 entries). This minimal footprint significantly reduces CPU and RAM usage on MikroTik when processing Firewall, Mangle, or PCC rules, making it vastly superior to unoptimized Geolocation-based lists.
 
 ### 🚀 How to Use on MikroTik
 You don't need to download or run anything manually. Just paste these commands into your MikroTik Winbox Terminal to set up an automatic weekly fetch.
