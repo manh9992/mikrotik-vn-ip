@@ -1,30 +1,6 @@
 # MikroTik Vietnam IPv4 List 🇻🇳
 
-*(Scroll down for Vietnamese/Kéo xuống dưới để xem tiếng Việt)*
-
-## 🇬🇧 English
-
-An automated, serverless solution to keep your MikroTik RouterOS updated with the latest Vietnam IPv4 subnets.
-
-### 🌟 Features
-- **Authoritative Data:** Fetches exact and official IPv4 CIDR allocations directly from the **RIPE NCC** (stat.ripe.net) API.
-- **Serverless & Automated:** Uses **GitHub Actions** to automatically run the update script every Sunday at 02:00 AM (GMT+7).
-- **Router Optimized:** Unlike Geolocation lists (which output ~3,000 subnets), this authoritative list aggregates into just ~1,650 subnets. This drastically reduces CPU and RAM usage on MikroTik when scanning Firewall/Mangle/PCC rules, without sacrificing accuracy.
-
-### 🚀 How to Use on MikroTik
-You don't need to download or run anything manually. Just paste these commands into your MikroTik Winbox Terminal to set up an automatic weekly fetch.
-
-```routeros
-# 1. Add a Scheduler to automatically fetch and import the list every Sunday at 03:00 AM
-/system scheduler add name="update-vn-ipv4-list" start-time=03:00:00 interval=1w on-event="/tool fetch url=\"https://raw.githubusercontent.com/manh9992/mikrotik-vn-ip/main/vn_ipv4.rsc\" mode=https dst-path=\"vn_ipv4.rsc\"\r\n/import file-name=\"vn_ipv4.rsc\"" comment="Auto update VN IPv4 list weekly from GitHub Actions" policy=read,write,policy,test
-
-# 2. Run manually for the first time to populate the list immediately
-/tool fetch url="https://raw.githubusercontent.com/manh9992/mikrotik-vn-ip/main/vn_ipv4.rsc" mode=https dst-path="vn_ipv4.rsc"
-/import file-name="vn_ipv4.rsc"
-```
-The list will be available in `/ip firewall address-list` under the name `vn_ipv4`.
-
----
+*(Scroll down for English version)*
 
 ## 🇻🇳 Tiếng Việt
 
@@ -47,3 +23,27 @@ Anh/em không cần phải tự tải file hay mở máy tính. Chỉ cần copy
 /import file-name="vn_ipv4.rsc"
 ```
 Danh sách IP sau khi nạp sẽ nằm ở mục `/ip firewall address-list` với tên là `vn_ipv4`.
+
+---
+
+## 🇬🇧 English
+
+An automated, serverless solution to keep your MikroTik RouterOS updated with the latest Vietnam IPv4 subnets.
+
+### 🌟 Features
+- **Authoritative Data:** Fetches exact and official IPv4 CIDR allocations directly from the **RIPE NCC** (stat.ripe.net) API.
+- **Serverless & Automated:** Uses **GitHub Actions** to automatically run the update script every Sunday at 02:00 AM (GMT+7).
+- **Router Optimized:** Unlike Geolocation lists (which output ~3,000 subnets), this authoritative list aggregates into just ~1,650 subnets. This drastically reduces CPU and RAM usage on MikroTik when scanning Firewall/Mangle/PCC rules, without sacrificing accuracy.
+
+### 🚀 How to Use on MikroTik
+You don't need to download or run anything manually. Just paste these commands into your MikroTik Winbox Terminal to set up an automatic weekly fetch.
+
+```routeros
+# 1. Add a Scheduler to automatically fetch and import the list every Sunday at 03:00 AM
+/system scheduler add name="update-vn-ipv4-list" start-time=03:00:00 interval=1w on-event="/tool fetch url=\"https://raw.githubusercontent.com/manh9992/mikrotik-vn-ip/main/vn_ipv4.rsc\" mode=https dst-path=\"vn_ipv4.rsc\"\r\n/import file-name=\"vn_ipv4.rsc\"" comment="Auto update VN IPv4 list weekly from GitHub Actions" policy=read,write,policy,test
+
+# 2. Run manually for the first time to populate the list immediately
+/tool fetch url="https://raw.githubusercontent.com/manh9992/mikrotik-vn-ip/main/vn_ipv4.rsc" mode=https dst-path="vn_ipv4.rsc"
+/import file-name="vn_ipv4.rsc"
+```
+The list will be available in `/ip firewall address-list` under the name `vn_ipv4`.
