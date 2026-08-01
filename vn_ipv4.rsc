@@ -1,6 +1,6 @@
 # Script tự động cập nhật dải IP Việt Nam
 # Nguồn: RIPE NCC (stat.ripe.net)
-# Lần cập nhật cuối: 2026-07-25T20:07:14.759Z
+# Lần cập nhật cuối: 2026-08-01T20:05:58.577Z
 
 /ip firewall address-list remove [find list="vn_ipv4"]
 /ip firewall address-list
@@ -1395,6 +1395,8 @@ add list=vn_ipv4 address=160.191.252.0/23
 add list=vn_ipv4 address=160.191.254.0/23
 add list=vn_ipv4 address=160.236.130.0/23
 add list=vn_ipv4 address=160.236.140.0/23
+add list=vn_ipv4 address=160.236.190.0/23
+add list=vn_ipv4 address=160.236.192.0/23
 add list=vn_ipv4 address=160.250.0.0/23
 add list=vn_ipv4 address=160.250.2.0/23
 add list=vn_ipv4 address=160.250.4.0/23
