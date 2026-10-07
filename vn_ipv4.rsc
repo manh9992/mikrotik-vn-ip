@@ -1,6 +1,6 @@
 # Script tự động cập nhật dải IP Việt Nam
 # Nguồn: RIPE NCC (stat.ripe.net)
-# Lần cập nhật cuối: 2026-10-06T22:02:24.397Z
+# Lần cập nhật cuối: 2026-10-07T22:27:16.237Z
 
 /ip firewall address-list remove [find list="vn_ipv4"]
 /ip firewall address-list
